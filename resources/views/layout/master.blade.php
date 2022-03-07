@@ -11,95 +11,48 @@
     <meta name="author" content="@yield('meta_author', config('app.name'))">
     @yield('meta')
 
-    @stack('before-styles')
-
-    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/animate-css/vivify.min.css') }}">
-
-    @stack('after-styles')
-    @if (trim($__env->yieldContent('page-styles')))
-        @yield('page-styles')
-    @endif
-    <!-- Custom Css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/site.min.css') }}">
-    <style type="text/css">
-        .hideOverflow {
-            display: block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            max-width: 200px;
-        }
-    </style>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome-->
+    @includeIf('layout.admin.partials.css')
 </head>
+<body>
 
-<body class="theme-blush font-montserrat light_version">
-
-<!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <div class="bar4"></div>
-        <div class="bar5"></div>
-    </div>
-</div>
-
-@include('layout.themesetting')
-
-<!-- Overlay For Sidebars -->
-<div class="overlay"></div>
-
-<div id="wrapper">
-
-    @include('layout.navbar')
-
-    @include('layout.sidebar')
-
-    <div id="main-content">
-        <div class="container-fluid">
-        <div class="container-fluid">
-            <div class="block-header">
-                <div class="row clearfix">
-                    <div class="col-md-6 col-sm-12">
-                        <h1>@yield('title')</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#"><i class="icon-home"></i></a></li>
-                                @if (trim($__env->yieldContent('parentPageTitle')))
-                                    <li class="breadcrumb-item">@yield('parentPageTitle')</li>
-                                @endif
-                                @if (trim($__env->yieldContent('title2')))
-                                    <li class="breadcrumb-item">@yield('title2')</li>
-                                @endif
-                                @if (trim($__env->yieldContent('title')))
-                                    <li class="breadcrumb-item active">@yield('title')</li>
-                                @endif
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+    <div class="page-wrapper compact-sidebar" id="pageWrapper">
+      <!-- Page Header Start-->
+      @includeIf('layout.admin.partials.header')
+      <!-- Page Header Ends -->
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper sidebar-icon">
+        @include('layout.admin.partials.sidebar')
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <!-- Container-fluid starts-->
             @yield('content')
-
-            <div class="row">
-                <div class="col-sm-12 text-right my-3">
-                    <a href="https://www.matgis.com.tr">
-                        <img src="{{ asset('assets/images/matgis.png') }}" alt="MatGis tarafından geliştirilmiştir.">
-                    </a>
+            <!-- Container-fluid Ends-->
+          </div>
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-6 footer-copyright">
+                  <p class="mb-0">Copyright {{date('Y')}}-{{date('y', strtotime('+1 year'))}} © Matgis Yazılım tarafından geliştirilmiştir..</p>
                 </div>
+                <div class="col-md-6">
+                  <p class="pull-right mb-0">OfisERP İnsan Kaynakları ve Ön Muhasebe Yazılımı</p>
+                </div>
+              </div>
             </div>
+          </footer>
         </div>
-
-    </div>
-</div>
+      </div>
+      <!-- latest jquery-->
+      @includeIf('layout.admin.partials.js')
 
 <!-- Scripts -->
-@stack('before-scripts')
-<script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script>
-<script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script>
 
 @stack('after-scripts')
 

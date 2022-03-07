@@ -41,5 +41,12 @@ $factory->define(ImportedFatura::class, function (Faker $faker) {
         [
             ImportedFatura::COLUMN_TUR => Abone::COLUMN_TUR_DOGALGAZ
         ]
+    )
+    ->state(
+        ImportedFatura::class,
+        Abone::COLUMN_TUR_GENEL,
+        [
+            ImportedFatura::COLUMN_TUR => Abone::COLUMN_TUR_GENEL
+        ]
     );
 

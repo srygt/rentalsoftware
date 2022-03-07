@@ -129,13 +129,13 @@
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <label><span id="sonEndeksLabel">Toplam Tüketim</span><span class="text-danger">*</span></label>
+                                        <label><span id="sonEndeksLabel">Toplam Tüketim</span></label>
                                         <input type="number" class="form-control" name="son_endeks" value="{{old("son_endeks")}}" min="0.000000" step="0.001">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <label>Birim Tüketim Fiyatı<span class="text-danger">*</span></label>
+                                        <label>Birim Tüketim Fiyatı</label>
                                         <input
                                             id="birim_fiyat"
                                             name="birim_fiyat"

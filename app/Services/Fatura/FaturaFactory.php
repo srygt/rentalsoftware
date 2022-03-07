@@ -38,7 +38,11 @@ class FaturaFactory
         }
         else if ($type === Abone::COLUMN_TUR_ELEKTRIK) {
             return new Elektrik\ElektrikFaturasiService;
+        }  
+        else if ($type === Abone::COLUMN_TUR_GENEL) {
+            return new Genel\GenelFaturasiService;
         }
+
 
         throw new Exception('Undefined abone type');
     }

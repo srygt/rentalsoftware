@@ -42,3 +42,10 @@ $factory->state(Abone::class, Abone::COLUMN_TUR_DOGALGAZ, function () {
         Abone::COLUMN_TUR       => Abone::COLUMN_TUR_DOGALGAZ,
     ];
 });
+
+
+$factory->state(Abone::class, Abone::COLUMN_TUR_GENEL, function () {
+    return [
+        Abone::COLUMN_TUR       => Abone::COLUMN_TUR_GENEL,
+    ];
+});

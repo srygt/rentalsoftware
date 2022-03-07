@@ -18,11 +18,19 @@ class Logger
     /**
      * @param string $fileName
      * @param array $fieldsToCensor
-     * @param MessageInterface $message
+     * @param MessageInterface|string $message
      *
      * @return bool
      */
     public static function log(string $fileName, array $fieldsToCensor, $message): bool {
+        $logPath = self::getLogPath($fileName);
+        $logContentSeparator = PHP_EOL . PHP_EOL . PHP_EOL;
+
+        if (is_string($message)) {
+            $message = self::censorSecrets($fieldsToCensor, $message);
+            return Storage::append($logPath, $message, $logContentSeparator);
+        }
+
         $header = $message->getHeaders();
         $header = self::getRawHeader($header);
 
@@ -30,9 +38,6 @@ class Logger
 
         $logText = $header . PHP_EOL . PHP_EOL . $body;
         $logText = self::censorSecrets($fieldsToCensor, $logText);
-
-        $logPath = self::getLogPath($fileName);
-        $logContentSeparator = PHP_EOL . PHP_EOL . PHP_EOL;
 
         return Storage::append($logPath, $logText, $logContentSeparator);
     }

@@ -48,6 +48,7 @@ class Abone extends Model
     const COLUMN_TUR_SU         = 'su';
     const COLUMN_TUR_ELEKTRIK   = 'elektrik';
     const COLUMN_TUR_DOGALGAZ   = 'dogalgaz';
+    const COLUMN_TUR_GENEL      = 'genel';
     const COLUMN_BASLIK         = 'baslik';
     const COLUMN_ABONE_NO       = 'abone_no';
     const COLUMN_SAYAC_NO       = 'sayac_no';
@@ -60,6 +61,7 @@ class Abone extends Model
         self::COLUMN_TUR_ELEKTRIK   => 'Elektrik',
         self::COLUMN_TUR_SU         => 'Su',
         self::COLUMN_TUR_DOGALGAZ   => 'Doğalgaz',
+        self::COLUMN_TUR_GENEL      => 'Genel',
     ];
 
     /**

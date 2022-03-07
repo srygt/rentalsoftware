@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
     {
         DB::table('admins')->updateOrInsert(
             [
-                'username'=>'admin@admin.com',
+                'username'=>'admin',
             ],
             [
                 'name'      => 'Serdar',

@@ -3,15 +3,15 @@
 return [
     'ulke'                  => 'Türkiye',
     'il'                    => 'Diyarbakır',
-    'ilce'                  => 'Yenişehir',
-    'adres'                 => 'Elazığ Karayolu 22.KM OSB İdari Bina YENİŞEHİR/DİYARBAKIR OSB ',
-    'email'                 => 'info@diyarbakirosb.org.tr',
-    'unvan'                 => 'Diyarbakır Organize Sanayi Bölgesi Müteşebbis Heyet Başkanlığı',
-    'vergiNo'               => env('FATURA_VERGI_NO', '3010074708'),
+    'ilce'                  => 'Bağlar',
+    'adres'                 => 'Selahattin Eyyubi Mahallesi Şanlıurfa yolu 1.km Sanayi ve Teknoloji İl Müdürlüğü Hizmet Binası Kat:2 Bağlar/ Diyarbakır /TÜRKİYE',
+    'email'                 => 'info@dtiosb.org',
+    'unvan'                 => 'DİYARBAKIR TEKSTİL İHTİSAS ORGANİZE SANAYİ BÖLGESİ YÖNETİMİ',
+    'vergiNo'               => env('FATURA_VERGI_NO', '3010573878'),
     'vergiDairesi'          => 'Gökalp',
-    'telefon'               => \App\Helpers\Utils::getFormattedTelephoneNumber('904123450021'),
+    'telefon'               => \App\Helpers\Utils::getFormattedTelephoneNumber('904122383038'),
 
-    'urn'                   => 'urn:mail:defaultgb@diyarbakirosb.org.tr',
+    'urn'                   => 'urn:mail:defaultgb@dtiosb.org',
     'eFaturaNoPrefix'       => env('EFATURA_CODE_PREFIX'),
     'eArsivNoPrefix'        => env('EARSIV_CODE_PREFIX'),
     'eXNoDatePrefix'        => env('EX_DATE_PREFIX'), // eFatura and eArsiv date prefix

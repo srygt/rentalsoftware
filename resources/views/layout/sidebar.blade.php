@@ -1,6 +1,6 @@
 <div id="left-sidebar" class="sidebar">
     <div class="navbar-brand">
-        <a href="{{route('home')}}"><img src="{{asset('assets/images/osb.png')}}" alt="Oculux Logo" class="img-fluid logo"><span>Diyarbakır OSB</span></a>
+        <a href="{{route('home')}}"><img src="{{asset('assets/images/osb.png')}}" alt="Pro OSB" class="img-fluid logo"><span>DTİOSB</span></a>
         <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right">
             <i class="lnr lnr-menu fa fa-chevron-circle-left text-blush"></i>
         </button>
@@ -37,7 +37,11 @@
                         >
                             <a href="{{route('faturataslak.ekle.get')}}">Fatura Olustur</a>
                         </li>
-
+                        <li
+                            class="{{ Request::segment(2) === 'faturalar' && Request::segment(3) == '' ? 'active' : null }}"
+                        >
+                            <a href="{{route('faturaodeme.liste')}}">Fatura Ödeme Listesi</a>
+                        </li>                        
                     </ul>
                 </li>
                 <li class="{{ Request::segment(2) === 'aboneler' ? 'active open' : null }}">
@@ -53,6 +57,7 @@
                         >
                             <a href="{{route('abone.ekle.get')}}">Abone Ekle</a>
                         </li>
+                     
                     </ul>
                 </li>
                 <li class="{{ Request::segment(2) === 'mukellefler' ? 'active open' : null }}">
@@ -71,22 +76,37 @@
                     </ul>
                 </li>
                 <li class="{{ Request::segment(2) === 'import' ? 'active open' : null }}">
-                    <a href="#myPage" class="has-arrow"><i class="fa fa-upload"></i><span>İçeri Aktarma</span></a>
+                    <a href="#myPage" class="has-arrow"><i class="fa fa-upload"></i><span>Toplu Faturalama</span></a>
                     <ul>
                         <li
                             class="{{ Request::segment(2) === 'fatura' && Request::segment(3) == 'upload' ? 'active' : null }}"
                         >
-                            <a href="{{route('import.fatura.upload.get')}}">Fatura İçeri Aktar</a>
+                            <a href="{{route('import.fatura.upload.get')}}">Toplu Fatura Aktar</a>
                         </li>
                         <li
                             class="{{ Request::segment(2) === 'fatura' && Request::segment(3) == '' ? 'active' : null }}"
                         >
-                            <a href="{{route('import.fatura.liste')}}">Fatura Taslağı Listesi</a>
+                            <a href="{{route('import.fatura.liste')}}">Kesilecek Fatura Listesi</a>
                         </li>
                     </ul>
                 </li>
+                <li class="{{ Request::segment(2) === 'import' ? 'active open' : null }}">
+                    <a href="#myPage" class="has-arrow"><i class="fa fa-file"></i><span>Aidat Faturalama</span></a>
+                    <ul>
+                        <li
+                            class="{{ Request::segment(2) === 'ayarlar' && Request::segment(3) === 'ekle' ? 'active' : null }}"
+                        >
+                            <a href="{{route('aidatfaturaturu.liste')}}">Aidat Fatura Türü Listesi</a>
+                        </li>        
+                        <li
+                            class="{{ Request::segment(2) === 'ayarlar' && Request::segment(3) === 'ekle' ? 'active' : null }}"
+                        >
+                            <a href="{{route('kdvturu.liste')}}">KDV Türü Listesi</a>
+                        </li>                                                                
+                    </ul>
+                </li>          
                 <li class="{{ Request::segment(2) === 'ayarlar' ? 'active' : null }}">
-                    <a href="#myPage" class="has-arrow"><i class="fa fa-cogs"></i><span>Ayar İşlemleri</span></a>
+                    <a href="#myPage" class="has-arrow"><i class="fa fa-cogs"></i><span>Ayarlar</span></a>
                     <ul>
                         <li
                             class="{{ Request::segment(2) === 'ayarlar' && Request::segment(3) == 'genel' ? 'active' : null }}"

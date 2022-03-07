@@ -42,6 +42,12 @@ class Ayar extends Model
     const FIELD_DOGALGAZ_SON_ODEME_GUN          = 'dogalgaz.son_odeme_gun';
     const FIELD_DOGALGAZ_TUKETIM_BIRIM_FIYAT    = 'dogalgaz.tuketim_birim_fiyat';
     const FIELD_DOGALGAZ_FATURA_ACIKLAMA        = 'dogalgaz.fatura_aciklama';
+    const FIELD_GENEL_BANKA_HESAP_ADI           = 'genel.banka_hesap_adi';
+    const FIELD_GENEL_BANKA_IBAN                = 'genel.banka_iban';
+    const FIELD_GENEL_FATURA_TARIH              = 'genel.fatura_tarih';
+    const FIELD_GENEL_SON_ODEME_GUN             = 'genel.son_odeme_gun';
+    const FIELD_GENEL_FATURA_ACIKLAMA           = 'genel.fatura_aciklama';
+
 
     const LIST_FIELDS   = [
         self::FIELD_ELEKTRIK_BANKA_HESAP_ADI,
@@ -65,6 +71,11 @@ class Ayar extends Model
         self::FIELD_DOGALGAZ_SON_ODEME_GUN,
         self::FIELD_DOGALGAZ_TUKETIM_BIRIM_FIYAT,
         self::FIELD_DOGALGAZ_FATURA_ACIKLAMA,
+        self::FIELD_GENEL_BANKA_HESAP_ADI,
+        self::FIELD_GENEL_BANKA_IBAN,
+        self::FIELD_GENEL_FATURA_TARIH,
+        self::FIELD_GENEL_SON_ODEME_GUN,
+        self::FIELD_GENEL_FATURA_ACIKLAMA,        
     ];
 
     public static function allFormatted()

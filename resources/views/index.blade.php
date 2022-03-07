@@ -2,216 +2,200 @@
 @section('parentPageTitle', '')
 @section('title', 'Anasayfa')
 
-@section('page-styles')
-<link rel="stylesheet" href="{{ asset('assets/vendor/c3/c3.min.css') }}" />
-<style type="text/css">
-#staticsList a {
-    color: #17191c;
-}
-</style>
-@append
+@push('css')
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/date-picker.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/owlcarousel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/prism.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/whether-icon.css')}}">
+@endpush
+    @section('content')
+        @component('components.breadcrumb')
+            @slot('breadcrumb_title')
+                <h3>General</h3>
+            @endslot
+            <li class="breadcrumb-item">Widgets</li>
+            <li class="breadcrumb-item active">General</li>
+        @endcomponent
+        <div class="container-fluid">
+            <div class="row">
 
-@section('content')
+                <div class="col-sm-6 col-xl-3 col-lg-6">
+                    <div class="card o-hidden border-0">
+                        <div class="bg-primary b-r-4 card-body">
+                            <div class="media static-top-widget">
+                                <div class="align-self-center text-center"><i data-feather="database"></i></div>
+                                <div class="media-body">
+                                    <span class="m-0">Earnings</span>
+                                    <h4 class="mb-0 counter">6659</h4>
+                                    <i class="icon-bg" data-feather="database"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3 col-lg-6">
+                    <div class="card o-hidden border-0">
+                        <div class="bg-secondary b-r-4 card-body">
+                            <div class="media static-top-widget">
+                                <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
+                                <div class="media-body">
+                                    <span class="m-0">Products</span>
+                                    <h4 class="mb-0 counter">9856</h4>
+                                    <i class="icon-bg" data-feather="shopping-bag"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3 col-lg-6">
+                    <div class="card o-hidden border-0">
+                        <div class="bg-primary b-r-4 card-body">
+                            <div class="media static-top-widget">
+                                <div class="align-self-center text-center"><i data-feather="message-circle"></i></div>
+                                <div class="media-body">
+                                    <span class="m-0">Messages</span>
+                                    <h4 class="mb-0 counter">893</h4>
+                                    <i class="icon-bg" data-feather="message-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-3 col-lg-6">
+                    <div class="card o-hidden border-0">
+                        <div class="bg-primary b-r-4 card-body">
+                            <div class="media static-top-widget">
+                                <div class="align-self-center text-center"><i data-feather="user-plus"></i></div>
+                                <div class="media-body">
+                                    <span class="m-0">New Use</span>
+                                    <h4 class="mb-0 counter">4531</h4>
+                                    <i class="icon-bg" data-feather="user-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div id="staticsList" class="row clearfix">
-        @if ($errors->any() || session()->has('message'))
-            <div class="col-sm-12" id="messages">
-                @if (session()->has('message'))
-                    <div class="alert alert-success">
-                        {{ session()->get('message')}}
+                <div class="col-xl-6 xl-100 box-col-12">
+                    <div class="widget-joins card widget-arrow">
+                        <div class="row">
+                            <div class="col-sm-6 pe-0">
+                                <div class="media border-after-xs">
+                                    <div class="align-self-center me-3 text-start">
+                                        <span class="widget-t mb-1">Sale</span>
+                                        <h5 class="mb-0">Today</h5>
+                                    </div>
+                                    <div class="media-body align-self-center"><i class="font-primary" data-feather="arrow-down"></i></div>
+                                    <div class="media-body">
+                                        <h5 class="mb-0">$<span class="counter">25698</span></h5>
+                                        <span class="mb-1">-$2658(36%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 ps-0">
+                                <div class="media">
+                                    <div class="align-self-center me-3 text-start">
+                                        <span class="widget-t mb-1">Sale</span>
+                                        <h5 class="mb-0">Month</h5>
+                                    </div>
+                                    <div class="media-body align-self-center"><i class="font-primary" data-feather="arrow-up"></i></div>
+                                    <div class="media-body ps-2">
+                                        <h5 class="mb-0">$<span class="counter">6954</span></h5>
+                                        <span class="mb-1">+$369(15%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 pe-0">
+                                <div class="media border-after-xs">
+                                    <div class="align-self-center me-3 text-start">
+                                        <span class="widget-t mb-1">Sale</span>
+                                        <h5 class="mb-0">Week</h5>
+                                    </div>
+                                    <div class="media-body align-self-center"><i class="font-primary" data-feather="arrow-up"></i></div>
+                                    <div class="media-body">
+                                        <h5 class="mb-0">$<span class="counter">63147</span></h5>
+                                        <span class="mb-1">+$69(65%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 ps-0">
+                                <div class="media">
+                                    <div class="align-self-center me-3 text-start">
+                                        <span class="widget-t mb-1">Sale</span>
+                                        <h5 class="mb-0">Year</h5>
+                                    </div>
+                                    <div class="media-body align-self-center ps-3"><i class="font-primary" data-feather="arrow-up"></i></div>
+                                    <div class="media-body ps-2">
+                                        <h5 class="mb-0">$<span class="counter">963198</span></h5>
+                                        <span class="mb-1">+$3654(90%)          </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                </div>
+                <div class="col-xl-6 xl-100 box-col-12">
+                    <div class="widget-joins card">
+                        <div class="row">
+                            <div class="col-sm-6 pe-0">
+                                <div class="media border-after-xs">
+                                    <div class="align-self-center me-3">68%<i class="fa fa-angle-up ms-2"></i></div>
+                                    <div class="media-body details ps-3">
+                                        <span class="mb-1">New</span>
+                                        <h5 class="mb-0 counter">6982</h5>
+                                    </div>
+                                    <div class="media-body align-self-center"><i class="font-primary float-end ms-2" data-feather="shopping-bag"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 ps-0">
+                                <div class="media">
+                                    <div class="align-self-center me-3">12%<i class="fa fa-angle-down ms-2"></i></div>
+                                    <div class="media-body details ps-3">
+                                        <span class="mb-1">Pending</span>
+                                        <h5 class="mb-0 counter">783</h5>
+                                    </div>
+                                    <div class="media-body align-self-center"><i class="font-primary float-end ms-3" data-feather="layers"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 pe-0">
+                                <div class="media border-after-xs">
+                                    <div class="align-self-center me-3">68%<i class="fa fa-angle-up ms-2"></i></div>
+                                    <div class="media-body details ps-3 pt-0">
+                                        <span class="mb-1">Done</span>
+                                        <h5 class="mb-0 counter">3674</h5>
+                                    </div>
+                                    <div class="media-body align-self-center"><i class="font-primary float-end ms-2" data-feather="shopping-cart"></i></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 ps-0">
+                                <div class="media">
+                                    <div class="align-self-center me-3">68%<i class="fa fa-angle-up ms-2"></i></div>
+                                    <div class="media-body details ps-3 pt-0">
+                                        <span class="mb-1">Cancel</span>
+                                        <h5 class="mb-0 counter">069</h5>
+                                    </div>
+                                    <div class="media-body align-self-center"><i class="font-primary float-end ms-2" data-feather="dollar-sign"></i></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                @endif
-            </div>
-        @endif
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
-                <div class="body">
-                    <a href="{{ route('fatura.gelen.liste') }}?since=30">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-in-bg bg-indigo text-white rounded-circle"><i class="fa fa-arrow-down"></i></div>
-                            <div class="ml-4">
-                                <span>Gelen e-Fatura</span>
-                                <h4 class="mb-0 font-weight-medium">{{ $harcananGelenFaturaMiktari }}</h4>
-                            </div>
-                        </div>
-                    </a>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
-                <div class="body">
-                    <a href="{{ route('fatura.liste') }}?since=30&app_type=1">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-in-bg bg-azura text-white rounded-circle"><i class="fa fa-arrow-up"></i></div>
-                            <div class="ml-4">
-                                <span>Giden e-Fatura</span>
-                                <h4 class="mb-0 font-weight-medium">{{ $harcananGidenFaturaMiktari }}</h4>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
-                <div class="body">
-                    <a href="{{ route('fatura.liste') }}?since=30&app_type=3">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-in-bg bg-orange text-white rounded-circle"><i class="fa fa-file"></i></div>
-                            <div class="ml-4">
-                                <span>Giden e-Arşiv</span>
-                                <h4 class="mb-0 font-weight-medium">{{ $harcananEArsivFaturaMiktari }}</h4>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
-                <div class="body">
-                    <a href="javascript:;">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-in-bg bg-pink text-white rounded-circle"><i class="fa fa-life-ring"></i></div>
-                            <div class="ml-4">
-                                <span>Kalan Kontör</span>
-                                <h4 class="mb-0 font-weight-medium">{{ $kalanKontor }}</h4>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+
         </div>
     </div>
-
-    <div class="row clearfix">
-        <div class="col-lg-5">
-            <div class="card">
-                <div class="body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="mb-0">Bu Ay Kesilen Faturalar</h6>
-                        </div>
-                    </div>
-                    <div class="row clearfix">
-                        <div class="col-md-12">
-                            <small>
-                                Fatura türüne göre gruplandırılmıştır
-                            </small>
-                            <div class="d-flex justify-content-start mt-3">
-                                <div class="mr-5">
-                                    <label class="mb-0">Elektrik</label>
-                                    <h4>
-                                        <abbr title="{{ getMoneyFormat($turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_ELEKTRIK] ?? 0)}}TL">
-                                            {{ getMoneyFormat(($turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_ELEKTRIK] ?? 0)/(1000*1000)) }}M TL
-                                        </abbr>
-                                    </h4>
-                                </div>
-                                <div class="mr-5">
-                                    <label class="mb-0">Su</label>
-                                    <h4>
-                                        <abbr title="{{ getMoneyFormat($turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_SU] ?? 0)}}TL">
-                                            {{ getMoneyFormat(($turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_SU] ?? 0)/(1000*1000)) }}M TL
-                                        </abbr>
-                                    </h4>
-                                </div>
-                                <div>
-                                    <label class="mb-0">Doğalgaz</label>
-                                    <h4>
-                                        <abbr title="{{ getMoneyFormat($turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_DOGALGAZ] ?? 0)}}TL">
-                                            {{ getMoneyFormat(($turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_DOGALGAZ] ?? 0)/(1000*1000)) }}M TL
-                                        </abbr>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div id="chart-donut" style="height: 250px"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-7">
-            <div class="table-responsive">
-                <table class="table table-hover table-custom spacing5">
-                    <thead>
-                    <tr>
-                        <th style="width: 20px;">Fatura No</th>
-                        <th>Tarih</th>
-                        <th style="width: 50px;">Miktar</th>
-                        <th colspan="2">Fatura Türü</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($yeniFaturalar as $yeniFatura)
-                    <tr>
-                        <td>
-                            <span>{{ $yeniFatura->DocumentId }}</span>
-                        </td>
-                        <td>{{ $yeniFatura->CreatedDate }}</td>
-                        <td>{{ $yeniFatura->PayableAmount . $yeniFatura->DocumentCurrencyCode }}</td>
-                        <td><span class="badge badge-info ml-0 mr-0">{{ $yeniFatura->DocumentTypeCode }}</span></td>
-                        <td>
-                            <a href="{{ route('fatura.detay', ['appType' => $yeniFatura->AppType, 'uuid' => $yeniFatura->UUID]) }}" class="btn btn-sm btn-default" title="Faturayı Görüntüle" data-toggle="tooltip" data-placement="top"><i class="fa fa-download text-blue"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-@stop
-
-@section('page-styles')
-@stop
-
-@section('page-script')
-<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
-<script src="{{ asset('assets/bundles/c3.bundle.js') }}"></script>
-<script>
-
-    c3.generate({
-        bindto: '#chart-donut', // id of chart wrapper
-        data: {
-            columns: [
-                // each columns data
-                ['data1', {{ $turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_ELEKTRIK] ?? 0 }}],
-                ['data2', {{ $turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_SU] ?? 0 }}],
-                ['data3', {{ $turlereGoreToplam[\App\Models\Abone::COLUMN_TUR_DOGALGAZ] ?? 0 }}],
-            ],
-            type: 'donut', // default type of chart
-            colors: {
-                'data1': '#E60000',
-                'data2': '#17C2D7',
-                'data3': '#9367B4',
-            },
-            names: {
-                // name of each serie
-                'data1': 'Elektrik',
-                'data2': 'Su',
-                'data3': 'Doğalgaz',
-            }
-        },
-        axis: {
-        },
-        legend: {
-            show: true, //hide legend
-        },
-        padding: {
-            bottom: 20,
-            top: 0
-        },
-    });
-</script>
-@stop
+    @push('scripts')
+        <script src="{{asset('assets/js/prism/prism.min.js')}}"></script>
+        <script src="{{asset('assets/js/clipboard/clipboard.min.js')}}"></script>
+        <script src="{{asset('assets/js/counter/jquery.waypoints.min.js')}}"></script>
+        <script src="{{asset('assets/js/counter/jquery.counterup.min.js')}}"></script>
+        <script src="{{asset('assets/js/counter/counter-custom.js')}}"></script>
+        <script src="{{asset('assets/js/custom-card/custom-card.js')}}"></script>
+        <script src="{{asset('assets/js/datepicker/date-picker/datepicker.js')}}"></script>
+        <script src="{{asset('assets/js/datepicker/date-picker/datepicker.en.js')}}"></script>
+        <script src="{{asset('assets/js/datepicker/date-picker/datepicker.custom.js')}}"></script>
+        <script src="{{asset('assets/js/owlcarousel/owl.carousel.js')}}"></script>
+        <script src="{{asset('assets/js/general-widget.js')}}"></script>
+        <script src="{{asset('assets/js/height-equal.js')}}"></script>
+        <script src="{{asset('assets/js/tooltip-init.js')}}"></script>
+    @endpush
+@endsection
