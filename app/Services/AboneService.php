@@ -12,7 +12,7 @@ class AboneService
     /**
      * @param Abone $abone
      *
-     * @return bool
+     * @return boola
      */
     public static function isLocked(Abone $abone) : bool
     {
